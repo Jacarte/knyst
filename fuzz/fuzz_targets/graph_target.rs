@@ -105,7 +105,7 @@ fuzz_target!(|data: &[u8]| {
         sample_rate,
         latency: u.arbitrary().unwrap(),
         num_outputs: backend.num_outputs(),
-        max_node_inputs: 1000000000000, // Big enough
+        max_node_inputs: 10000000000, // Big enough
         ..Default::default()
     });
 
