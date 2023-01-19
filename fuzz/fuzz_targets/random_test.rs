@@ -9,7 +9,12 @@ fuzz_target!(|data: &[u8]| {
 
     // Crash if data len > 3
     //
-    if data.len() > 3 {
-        panic!("Test crash 1");
-    }
+    //if data.len() > 3 {
+    //    panic!("Test crash 1");
+    //}
+
+    // More complex example
+    //if data.len() > 100 && data[2] == 200 {
+    //    panic!("Test crash 2")
+    //}
 });
