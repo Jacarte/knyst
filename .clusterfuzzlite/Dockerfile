@@ -1,6 +1,6 @@
 FROM gcr.io/oss-fuzz-base/base-builder-rust
 
-RUN apt-get update && apt-get install -y make autoconf automake libtool curl \
+RUN apt-get update && apt-get install -y apt-utils && apt-get install -y make autoconf automake libtool curl \
   cmake python llvm-dev libclang-dev clang \
   libgmp-dev python3-pip pkg-config libasound2-dev libasound2:i386 libasound2  libasound-dev libportaudio2
 
