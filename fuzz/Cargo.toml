@@ -1,0 +1,30 @@
+[package]
+name = "knyst-fuzz"
+version = "0.0.1"
+publish = false
+edition.workspace = true
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+anyhow = { workspace = true }
+
+# Structured but random data, stage two of explanation
+arbitrary = "1.1.0"
+libfuzzer-sys = "0.4.0"
+
+
+knyst = { path = "../knyst" }
+
+[lib]
+test = false
+doctest = false
+
+[[bin]]
+name = "random_test"
+path = "fuzz_targets/random_test.rs"
+test = false
+bench = false
+
+
