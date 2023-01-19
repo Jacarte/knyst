@@ -15,7 +15,7 @@ arbitrary = "1.1.0"
 libfuzzer-sys = "0.4.0"
 
 
-knyst = { path = "../knyst" }
+knyst = { path = "../knyst", features = ["cpal"] }
 
 [lib]
 test = false
@@ -27,4 +27,8 @@ path = "fuzz_targets/random_test.rs"
 test = false
 bench = false
 
-
+[[bin]]
+name = "graph"
+path = "fuzz_targets/graph_target.rs"
+test = false
+bench = false
