@@ -28,7 +28,7 @@ test = false
 bench = false
 
 [[bin]]
-name = "graph"
+name = "graph_target"
 path = "fuzz_targets/graph_target.rs"
 test = false
 bench = false
