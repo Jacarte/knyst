@@ -1,0 +1,6 @@
+language: rust
+fuzzing_engines:
+  - libfuzzer
+  # Notice that here you can add another one, e.g. afl
+auto_ccs :
+  - "javierca@kth.se"

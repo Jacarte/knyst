@@ -1,0 +1,79 @@
+[package]
+name = "knyst"
+version = "0.3.1"
+edition.workspace = true
+license = "MIT OR Apache-2.0"
+description = "Real time dynamic audio graph and synthesis library"
+authors = ["Erik Natanael Gustafsson <code@eriknatanael.com>"]
+repository = "https://github.com/ErikNatanael/knyst"
+homepage = "https://github.com/ErikNatanael/knyst"
+
+[package.metadata.docs.rs]
+# Whether to pass `--all-features` to Cargo (default: false)
+all-features = true
+
+
+[dependencies]
+slotmap = { workspace = true }
+# For ergonomic error handling
+thiserror = { workspace = true }
+# For real time safe communication between threads
+rtrb = { workspace = true }
+fastrand = { workspace = true }
+# Fast approximation of common float math. Probably under BSD-3.
+fastapprox = { workspace = true }
+# Downcast used to have any user data in the Resources struct
+downcast-rs = { workspace = true }
+# Loading audio buffers
+symphonia = { workspace = true }
+# JACK audio backend
+jack = { workspace = true, optional = true }
+# CPAL audio backend
+cpal = { workspace = true, optional = true }
+
+# For concurrency testing
+[target.'cfg(loom)'.dependencies]
+loom = {version = "0.5", features = ["checkpoint"] }
+
+[dev-dependencies]
+rand = { workspace = true }
+criterion = { workspace = true }
+anyhow = { workspace =  true }
+dialog = { workspace = true }
+fundsp = { workspace = true }
+
+
+[[bench]]
+name = "micro_benchmarks"
+harness = false
+
+
+[[example]]
+name = "jack_example"
+path = "examples/jack_example.rs"
+required-features = ["jack"]
+
+[[example]]
+name = "cpal_example"
+path = "examples/cpal_example.rs"
+required-features = ["cpal"]
+
+[[example]]
+name = "sine_piece"
+path = "examples/sine_piece.rs"
+required-features = ["cpal"]
+
+[[example]]
+name = "fundsp_encapsulation"
+path = "examples/fundsp_encapsulation.rs"
+required-features = ["cpal"]
+
+[[example]]
+name = "sequences"
+path = "examples/sequences.rs"
+required-features = ["cpal"]
+
+[[example]]
+name = "sound_file_playback"
+path = "examples/sound_file_playback.rs"
+required-features = ["cpal"]
