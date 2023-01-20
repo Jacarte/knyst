@@ -14,7 +14,7 @@ fuzz_target!(|data: &[u8]| {
     //}
 
     // More complex example
-    //if data.len() > 100 && data[2] == 200 {
-    //    panic!("Test crash 2")
-    //}
+    if data.len() > 100 && data[2] == 200 {
+        panic!("Test crash 2")
+    }
 });
