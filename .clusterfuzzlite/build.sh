@@ -12,7 +12,7 @@ cp -r --parents /usr/include/alsa $OUT/
 
 for f in fuzz/fuzz_targets/*.rs
 do
-    FUZZ_TARGET_NAME="random_target" # copy only one for now$(basename ${f%.*})
+    FUZZ_TARGET_NAME="random_test" # copy only one for now$(basename ${f%.*})
     # Copy each compiled fuzz target to the output folder
     # the clusterfuzz lite backkend will execute each binary in the folder as a
     # fuzz target
